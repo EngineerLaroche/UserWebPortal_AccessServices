@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListOrganismes Is mounting 1`] = `
+<div
+  className="container page"
+>
+  <hr />
+  <h1
+    className="text-xs-center"
+  >
+    Liste des Organismes
+  </h1>
+  <hr />
+  <br />
+  <br />
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-8 offset-md-3 col-xs-12"
+    >
+      <div
+        className="text-xs-center"
+      >
+        <label>
+          Search by name: 
+        </label>
+        <br />
+        <input
+          type="text"
+        />
+        <button
+          onClick={[MockFunction]}
+        >
+          Go
+        </button>
+      </div>
+      <br />
+      <br />
+      <div
+        className="text-xs-left"
+      >
+        <li>
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/organisme/undefined"
+          />
+          <hr />
+        </li>
+        <li>
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/organisme/undefined"
+          />
+          <hr />
+        </li>
+        <li>
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/organisme/undefined"
+          />
+          <hr />
+        </li>
+        <li>
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/organisme/undefined"
+          />
+          <hr />
+        </li>
+        <li>
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/organisme/undefined"
+          />
+          <hr />
+        </li>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ListOrganismes renders Is mounting 1`] = `
+<div
+  className="container page"
+>
+  <hr />
+  <h1
+    className="text-xs-center"
+  >
+    Liste des Organismes
+  </h1>
+  <hr />
+  <br />
+  <br />
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-8 offset-md-3 col-xs-12"
+    >
+      <div
+        className="text-xs-center"
+      >
+        <label>
+          Search by name: 
+        </label>
+        <br />
+        <input
+          type="text"
+        />
+        <button
+          onClick={[MockFunction]}
+        >
+          Go
+        </button>
+      </div>
+      <br />
+      <br />
+      <div
+        className="text-xs-left"
+      >
+        <li
+          key="organisme@test.com"
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/organisme/organisme@test.com"
+          >
+            OrganismeTest
+          </Link>
+          <hr />
+        </li>
+      </div>
+    </div>
+  </div>
+</div>
+`;

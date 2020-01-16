@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListReferents is rendering Is mounting 1`] = `
+<div
+  className="container page"
+>
+  <hr />
+  <h1
+    className="text-xs-center"
+  >
+    Liste des Référents
+  </h1>
+  <hr />
+  <br />
+  <br />
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-8 offset-md-3 col-xs-12"
+    >
+      <div
+        className="text-xs-center"
+      >
+        <label>
+          Search: 
+        </label>
+        <br />
+        <fieldset>
+          <fieldset
+            className="form-group"
+          >
+            <input
+              onChange={[Function]}
+              type="text"
+            />
+            <button
+              onClick={[Function]}
+            >
+              Go
+            </button>
+          </fieldset>
+        </fieldset>
+      </div>
+      <br />
+      <br />
+      <div
+        className="text-xs-left"
+      >
+        <li
+          key="referent@test.com"
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/referent/referent@test.com"
+          >
+            Referent
+             
+            Test
+          </Link>
+          <hr />
+        </li>
+      </div>
+    </div>
+  </div>
+</div>
+`;

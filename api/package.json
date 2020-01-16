@@ -1,0 +1,32 @@
+{
+  "name": "lab-01",
+  "version": "0.0.0",
+  "author": "LOG-210_Equipe-01",
+  "license": "ETS",
+  "private": true,
+  "scripts": {
+    "start": "set NODE_ENV=dev && nodemon src/server.js",
+    "test": "set NODE_ENV=test && nyc mocha \"src/test/api_tests.js\" --timeout 5000"
+  },
+  "dependencies": {
+    "apollo-server": "^0.3.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.19.0",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.1",
+    "express": "^4.17.1",
+    "graphql": "^0.6.2",
+    "graphql-tools": "^0.8.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^4.6.8",
+    "sqlite3": "^4.0.2",
+    "validator": "^6.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.19.4",
+    "nyc": "^15.0.0",
+    "supertest": "^3.4.2"
+  }
+}
