@@ -3,6 +3,7 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 
 chai.use(chaiHttp);
+
 module.exports = function (app) {
     var token;
     describe('Users request test', () => {

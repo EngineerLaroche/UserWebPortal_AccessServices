@@ -203,17 +203,17 @@ export class EditDemandeService extends React.Component {
                 this.setState({ 'motifsSelected': currentMotifs });
 
                 var currentAvocatsFirstParent = [];
-                for (var j = 0; j < response.body.DemandeDeService.FirstParentAvocats.length; j++) {
+                for (var i = 0; i < response.body.DemandeDeService.FirstParentAvocats.length; i++) {
                     currentAvocatsFirstParent.push({
-                        value: response.body.DemandeDeService.FirstParentAvocats[j].Id,
-                        label: response.body.DemandeDeService.FirstParentAvocats[j].Firstname + " " + response.body.DemandeDeService.FirstParentAvocats[j].Lastname
+                        value: response.body.DemandeDeService.FirstParentAvocats[i].Id,
+                        label: response.body.DemandeDeService.FirstParentAvocats[i].Firstname + " " + response.body.DemandeDeService.FirstParentAvocats[i].Lastname
                     });
                 }
                 var currentAvocatsSecondParent = [];
-                for (var k = 0; k < response.body.DemandeDeService.SecondParentAvocats.length; k++) {
+                for (var i = 0; i < response.body.DemandeDeService.SecondParentAvocats.length; i++) {
                     currentAvocatsSecondParent.push({
-                        value: response.body.DemandeDeService.SecondParentAvocats[k].Id,
-                        label: response.body.DemandeDeService.SecondParentAvocats[k].Firstname + " " + response.body.DemandeDeService.SecondParentAvocats[k].Lastname
+                        value: response.body.DemandeDeService.SecondParentAvocats[i].Id,
+                        label: response.body.DemandeDeService.SecondParentAvocats[i].Firstname + " " + response.body.DemandeDeService.SecondParentAvocats[i].Lastname
                     });
                 }
             });

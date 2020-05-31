@@ -1,87 +1,123 @@
 import { Link } from "react-router-dom";
-import Request from 'superagent';
-import React from 'react';
-import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
-import { GETORGANISMES, ORGANISMESEARCH } from '../../constants/actionTypes';
+import Request from "superagent";
+import React from "react";
+import { connect } from "react-redux";
+import { FormattedMessage } from "react-intl";
+import { GETORGANISMES, ORGANISMESEARCH } from "../../constants/actionTypes";
+import { tableIcons } from "../../utils";
+import MaterialTable from "material-table";
 
-const mapStateToProps = state => ({
-    organismes: '',
-    search: ''
+// Redirige vers la page qui permet de modifier les parametres d'un Organisme
+export const EditOrganismeSettings = (props) => {
+  return (
+    <Link to={"/organisme/edit/" + props.organismeEmail}>
+      <div class="aa">
+        <i className="ion-gear-a"> </i>
+        <FormattedMessage
+          id="listorganismes.modify"
+          defaultMessage="Modifier"
+        />
+      </div>
+    </Link>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  organismes: "",
+  search: "",
 });
 
-const mapDispatchToProps = dispatch => ({
-    onLoad: () =>
-        dispatch({ type: GETORGANISMES }),
-    onSearch: () =>
-        dispatch({ type: ORGANISMESEARCH, payload: this.search })
+const mapDispatchToProps = (dispatch) => ({
+  onLoad: () => dispatch({ type: GETORGANISMES }),
+  onSearch: () => dispatch({ type: ORGANISMESEARCH, payload: this.search }),
 });
+
 export class ListOrganismes extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            search: '',
-            organismes: []
-        }
-    }
+  constructor() {
+    super();
+    this.state = {
+      search: "",
+      organismes: [],
+    };
+  }
 
-    componentWillMount() {
-        var url = "http://localhost:4000/organismes"
-        Request.get(url).then((response) => {
-            console.log(response.body);
-            var data = response.body.rows;
-            this.setState({ 'organismes': data });
-        });
+  componentWillMount() {
+    var url = "http://localhost:4000/organismes";
+    Request.get(url).then((response) => {
+      console.log(response.body);
+      var data = response.body.rows;
+      this.setState({ organismes: data });
+    });
+  }
 
-    }
+  render() {
+    const dataOrganismes = this.state.organismes;
+    var allOrganismes = [];
 
-    render() {
-        const data = this.state.organismes;
-
-        return (
-
-            <div className="container page">
-
-                <hr />
-                <h1 className="text-xs-center">
-                    <FormattedMessage
-                        id="listorganismes.title"
-                        defaultMessage="Liste des Organismes" />
-                </h1>
-                <hr />
-                <br />
-                <br />
-
-                <div className="row">
-                    <div className="col-md-8 offset-md-3 col-xs-12">
-                        <div className="text-xs-center">
-
-                            <label>
-                                <FormattedMessage
-                                    id="listorganismes.search"
-                                    defaultMessage="Rechercher par nom :" />
-                            </label>
-                            <br />
-                            <input type="text" value={this.search}>
-                            </input>
-                            <button onClick={this.props.onSearch}>Go</button>
-                        </div>
-                        <br />
-                        <br />
-
-                        <div className="text-xs-left">
-                            {(data != null) && Object.values(data).map((d) =>
-                                <li key={d.Email}>
-                                    <Link to={"/organisme/" + d.Email} className="nav-link">
-                                        {d.Name}
-                                    </Link>
-                                    <hr />
-                                </li>
-                            )}
-                        </div>
-                    </div>
-                </div>
-            </div>
+    {
+      // Insertion des donnees de chq organisme dans une liste
+      dataOrganismes != null &&
+        Object.values(dataOrganismes).map((d) =>
+          allOrganismes.push({
+            id: d.Id,
+            name: (
+              <Link to={"/organisme/" + d.Email} className="nav-link">
+                <div class="aa">{d.Name}</div>
+              </Link>
+            ),
+            email: d.Email,
+            phone: d.Phone,
+            add:
+              d.NoCivique + " " + d.Street + ", " + d.City + ", " + d.Province,
+            edit: (
+              <ul className="nav navbar-nav pull-xs-right">
+                <EditOrganismeSettings organismeEmail={d.Email} />
+              </ul>
+            ),
+          })
         );
     }
-} export default connect(mapStateToProps, mapDispatchToProps)(ListOrganismes);
+
+    return (
+      <div>
+        <h2 className="text-xs-center">
+          <div class="titlecolor">
+            <FormattedMessage
+              id="listorganismes.title"
+              defaultMessage="Repertoire des Organismes"
+            />
+          </div>
+        </h2>
+        <br />
+        <div class="searchcenter">
+          <div style={{ maxWidth: "100%" }}>
+            <MaterialTable
+              icons={tableIcons}
+              options={{
+                pageSizeOptions: [2, 3, 4, 5, 10],
+                headerStyle: {
+                  fontSize: "13px",
+                  padding: "10px",
+                  fontWeight: "bold",
+                },
+                cellStyle: { fontSize: "12px" },
+              }}
+              columns={[
+                { title: "ID", field: "id" },
+                { title: "Nom", field: "name" },
+                { title: "Email", field: "email" },
+                { title: "Tel.", field: "phone" },
+                { title: "Adresse", field: "add" },
+                { title: "Modifier", field: "edit" },
+              ]}
+              data={allOrganismes}
+              title=""
+            />
+          </div>
+        </div>
+        <br/>
+      </div>
+    );
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ListOrganismes);

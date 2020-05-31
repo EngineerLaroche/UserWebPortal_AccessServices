@@ -14,11 +14,11 @@ module.exports = function (db) {
         );
         //Creation de la table OrganismeReferent
         db.run(
-            "CREATE TABLE IF NOT EXISTS `OrganismeReferent` (`Id` INTEGER PRIMARY KEY, `Name` TEXT, 'Email' TEXT, 'Address' INTEGER, 'Phone' TEXT, 'Fax' TEXT, 'WebSite' TEXT, 'State' INTEGER, 'Organisme' INTEGER, FOREIGN KEY(Address) REFERENCES Address(Id), FOREIGN KEY(Organisme) REFERENCES Organisme(Id))"
+            "CREATE TABLE IF NOT EXISTS `OrganismeReferent` (`Id` INTEGER PRIMARY KEY, `Name` TEXT, 'Email' TEXT, 'Address' INTEGER, 'Phone' TEXT, 'Fax' TEXT, 'WebSite' TEXT, 'State' INTEGER, 'Organisme' INTEGER, FOREIGN KEY(Organisme) REFERENCES Organisme(Id))"
         );
         //Creation de la table Organisme
         db.run(
-            "CREATE TABLE IF NOT EXISTS `Organisme` (`Id` INTEGER PRIMARY KEY, `Name` TEXT, 'Email' TEXT, 'Address' INTEGER, 'Phone' TEXT, 'Fax' TEXT, FOREIGN KEY(Address) REFERENCES Address(Id))"
+            "CREATE TABLE IF NOT EXISTS `Organisme` (`Id` INTEGER PRIMARY KEY, `Name` TEXT, 'Email' TEXT, 'Phone' TEXT, 'Fax' TEXT, 'NoCivique' TEXT, 'Street' TEXT, 'City' TEXT, 'Province' TEXT, 'PostalCode' TEXT, 'Actif' TEXT)"
         );
         //Creation de la table Address
         db.run(
@@ -228,13 +228,9 @@ module.exports = function (db) {
         db.run(
             "INSERT INTO USER SELECT 1, 'Yvan' , 'Ross' , 'yross@gucci.com' , '12345' , '1', '0', '0' WHERE NOT EXISTS (SELECT * FROM User) "
         );
-        //Ajout d'une adresse pour l'organisme par défaut
-        db.run(
-            "INSERT INTO ADDRESS SELECT 1, '4123' , 'Rue des tests',  'Montreal', 'Quebec' , 'h3h 3h3' WHERE NOT EXISTS (SELECT * FROM Address) "
-        );
         //Ajout d'un organisme par défaut
         db.run(
-            "INSERT INTO ORGANISME SELECT 1, 'Organisme_communaitaire_mtl' , 'organisme_mtl@organisme.com',  '1', '1-800-888-1111' , '454789692231' WHERE NOT EXISTS (SELECT * FROM Organisme)"
+            "INSERT INTO ORGANISME SELECT 1, 'Organisme_communaitaire_mtl' , 'organisme_mtl@organisme.com',  '1-800-888-1111' , '450-284-1989', '45', 'Creusot', 'Montreal', 'Quebec', 'J6Y1N9', 'Actif' WHERE NOT EXISTS (SELECT * FROM Organisme)"
         );
         //Ajout d'un organisme referent par défaut
         db.run(

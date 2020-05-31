@@ -9,8 +9,10 @@ import Select from 'react-select';
 import "react-datepicker/dist/react-datepicker.css";
 
 import {
+    SETTINGS_SAVED,
     SETTINGS_PAGE_UNLOADED,
-    UPDATE_SERVICE
+    UPDATE_SERVICE,
+    ASSOCIATE_SERVICE
 } from '../../constants/actionTypes';
 
 export class EditServiceForm extends React.Component {

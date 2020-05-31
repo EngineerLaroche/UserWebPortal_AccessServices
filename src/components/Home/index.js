@@ -1,32 +1,29 @@
-import Banner from './Banner';
-import MainView from './MainView';
-import React from 'react';
-import { connect } from 'react-redux';
+import Banner from "./Banner";
+import MainView from "./MainView";
+import React from "react";
+import { connect } from "react-redux";
 import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
-  APPLY_TAG_FILTER
-} from '../../constants/actionTypes';
+  APPLY_TAG_FILTER,
+} from "../../constants/actionTypes";
 
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   ...state.home,
-  appName: 'Portail Web des Employés',
-  token: state.common.token
+  appName: "Portail RQRSDA",
+  token: state.common.token,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   onClickTag: (tag, pager, payload) =>
     dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
   onLoad: (tab, pager, payload) =>
     dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
-  onUnload: () =>
-    dispatch({  type: HOME_PAGE_UNLOADED })
+  onUnload: () => dispatch({ type: HOME_PAGE_UNLOADED }),
 });
 
 class Home extends React.Component {
-  componentWillMount() {
-  }
+  componentWillMount() {}
 
   componentWillUnmount() {
     this.props.onUnload();
