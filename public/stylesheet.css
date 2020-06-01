@@ -6444,6 +6444,12 @@ footer .attribution {
   width: 50%;
 }
 
+.columnfull {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
 .columnbtn {
   float: left;
   padding: 0 15px;
@@ -6486,10 +6492,12 @@ footer .attribution {
 
 .floatleft {
   float: left;
+  width: "100%";
 }
 
 .floatright {
   float: right;
+  width: "100%";
 }
 
 .headercolor {
@@ -6582,8 +6590,4 @@ footer .attribution {
   .youtube {
 	background: #bb0000;
 	color: white;
-  }
-
-  .floatfooter{
-	  float:bot
   }

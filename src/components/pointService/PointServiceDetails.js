@@ -107,8 +107,11 @@ export class PointServiceDetails extends React.Component {
                 <br />
                 {"Adresse: "}
                 <h7 class="aa">
-                  {currentPointService.nocivique} {currentPointService.street}{" "}
-                  {", "} {currentPointService.city} {", "}{" "}
+                  {currentPointService.nocivique}
+                  {currentPointService.street}
+                  {", "}
+                  {currentPointService.city}
+                  {", "}
                   {currentPointService.province}
                 </h7>
               </h6>
@@ -163,7 +166,4 @@ export class PointServiceDetails extends React.Component {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PointServiceDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(PointServiceDetails);
