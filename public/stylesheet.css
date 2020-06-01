@@ -6492,10 +6492,12 @@ footer .attribution {
 
 .floatleft {
   float: left;
+  width: "100%";
 }
 
 .floatright {
   float: right;
+  width: "100%";
 }
 
 .headercolor {

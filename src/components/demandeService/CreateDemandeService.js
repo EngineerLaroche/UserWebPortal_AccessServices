@@ -1111,13 +1111,14 @@ export class CreateDemandeService extends React.Component {
     return (
       <div className="create-demande-service">
         <h1 className="text-xs-center">
-          <div class="titlecolor">{"Créer demande de service"}</div>
+          <div class="titlecolor">Créer demande de service</div>
         </h1>
         <br />
         <div className="container page">
           <ListErrors errors={this.props.errors} />
+
           <div className="row">
-            <div className="columnfull">
+            <div className="col-md-8 offset-md-3 col-xs-12">
               <form
                 className="form-group"
                 onSubmit={this.submitForm(
@@ -1131,73 +1132,81 @@ export class CreateDemandeService extends React.Component {
                 ).bind(this)}
               >
                 <div class="row">
-                  <div class="column2">
-                    <h3 className="text-xs-center">Entrée en vigueur</h3>
-                    <br />
-                    <fieldset className="form-group">
-                      <DatePicker
-                        inline
-                        selected={this.state.Date}
-                        onSelect={this.handleSelect}
-                        onChange={this.handleChangeDate.bind(this)}
-                        value={this.state.datePrice}
-                      />
-                    </fieldset>
-                  </div>
+                  <div class="columnfull">
+                    <hr />
+                    <h3 class="text-xs-center">Disponibilités</h3>
+                    <hr />
 
-                  <div class="column2">
-                    <h3 className="text-xs-center">Motif(s)</h3>
-                    <br />
-                    <Select
-                      placeholder="Type"
-                      className="form-control form-control-xl"
-                      value={this.props.serviceType}
-                      options={ServiceTypeArray}
-                      isMulti={false}
-                      isSearchable={true}
-                      onChange={this.handleChangeServiceType.bind(this)}
-                    >
-                      )}
-                    </Select>
-                    <br />
-                    <Select
-                      placeholder="Motifs"
-                      className="form-control form-control-xl"
-                      value={motifs}
-                      options={motifsArray}
-                      isMulti={true}
-                      isSearchable={true}
-                      onChange={this.handleChangeMotifs.bind(this)}
-                    >
-                      )}
-                    </Select>
-                    <br />
-                    <fieldset className="form-group row">
+                    <div class="column2">
+                      <h5 className="text-xs-center aa">Entrée en vigueur</h5>
+                      <div className="text-xs-center">
+                        <fieldset>
+                          <DatePicker
+                            inline
+                            selected={this.state.Date}
+                            onSelect={this.handleSelect}
+                            onChange={this.handleChangeDate.bind(this)}
+                            value={this.state.datePrice}
+                          />
+                        </fieldset>
+                      </div>
+                    </div>
+
+                    <div class="column2">
+                      <h5 className="text-xs-center aa">Motif(s)</h5>
+                      <fieldset className="form-group">
+                        <Select
+                          placeholder="Type"
+                          className="form-control form-control-xl"
+                          value={this.props.serviceType}
+                          options={ServiceTypeArray}
+                          isMulti={false}
+                          isSearchable={true}
+                          onChange={this.handleChangeServiceType.bind(this)}
+                        >
+                          )}
+                        </Select>
+                      </fieldset>
+                      <fieldset className="form-group">
+                        <Select
+                          placeholder="Motifs"
+                          className="form-control form-control-xl"
+                          value={motifs}
+                          options={motifsArray}
+                          isMulti={true}
+                          isSearchable={true}
+                          onChange={this.handleChangeMotifs.bind(this)}
+                        >
+                          )}
+                        </Select>
+                      </fieldset>
+
                       <div class="row">
-                        <div class="floatleft">
+                        <fieldset className="form-group">
                           <input
-                            className="form-control form-control-sm"
+                            className="form-control form-control-default"
                             type="text"
                             placeholder="Autres motifs"
                             value={this.state.newMotif}
                             onChange={this.handleChangeNewMotif.bind(this)}
                           />
-                        </div>
+                        </fieldset>
+
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div class="floatright">
+                        
+                        <fieldset className="form-group">
                           <button
-                            class="btn btn-sm btn-info"
+                            class="btn btn-default btn-info"
                             onClick={this.addNewMotif(this.state.newMotif).bind(
                               this
                             )}
                           >
-                            Ajouter
+                            Ajouter motif
                           </button>
-                        </div>
+                        </fieldset>
                       </div>
-                    </fieldset>
+                    </div>
                   </div>
-                  <div />
 
                   <div className="row">
                     <div className="columnfull">
@@ -1206,7 +1215,7 @@ export class CreateDemandeService extends React.Component {
                       <hr />
                       <div class="column2 text-xs-center">
                         <h5 class="aa text-xs-center">Premier parent</h5>
-                        <br/>
+                        <br />
                         <ul className="list-group">
                           {disposFirstParent != null &&
                             Object.keys(disposFirstParent).map(
@@ -1249,13 +1258,13 @@ export class CreateDemandeService extends React.Component {
                             });
                           }}
                         >
-                          Ajouter
+                          Ajouter disponibilité
                         </button>
                       </div>
 
                       <div class="column2 text-xs-center">
                         <h5 class="aa text-xs-center">Deuxième parent</h5>
-                        <br/>
+                        <br />
                         <ul className="list-group">
                           {disposSecondParent != null &&
                             Object.keys(disposSecondParent).map(
@@ -1298,7 +1307,7 @@ export class CreateDemandeService extends React.Component {
                             });
                           }}
                         >
-                          Ajouter
+                          Ajouter disponibilité
                         </button>
                       </div>
                     </div>
@@ -1370,7 +1379,7 @@ export class CreateDemandeService extends React.Component {
                     <div className="columnfull">
                       <br />
                       <hr />
-                      <h3 class="text-xs-center">Enfants</h3>
+                      <h3 class="text-xs-center">Enfant(s)</h3>
                       <hr />
                       <div className="column2">
                         <h5 class="aa text-xs-center">Contact</h5>
@@ -1469,7 +1478,7 @@ export class CreateDemandeService extends React.Component {
                 </div>
                 <hr />
                 <hr />
-                <br/>
+                <br />
                 <div className="row">
                   <div className="columnfull text-xs-center">
                     <button
