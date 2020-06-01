@@ -259,10 +259,10 @@ class CreateService extends React.Component {
                         <option key="-1" value="-1">
                           Subvention Service
                         </option>
-                        <option key="0" value="0">
+                        <option key="1" value="1">
                           Subventionné
                         </option>
-                        <option key="1" value="1">
+                        <option key="0" value="0">
                           Non-Subventionné
                         </option>
                       </select>
@@ -277,10 +277,10 @@ class CreateService extends React.Component {
                         <option key="-1" value="-1">
                           Activité du Service
                         </option>
-                        <option key="0" value="0">
+                        <option key="1" value="1">
                           Actif
                         </option>
-                        <option key="1" value="1">
+                        <option key="0" value="0">
                           Inactif
                         </option>
                       </select>
